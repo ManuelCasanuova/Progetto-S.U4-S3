@@ -1,0 +1,19 @@
+RELAZIONI TRA LE CLASSI
+
+
+Un solo utente ------> molti prestiti
+
+
+Un utente può avere molti prestiti, ma i molti prestiti possono essere associati al singolo utente
+
+OneToMAny
+
+---------------------------------------------------------------------
+
+Un solo catalogo (composto da libri e riviste) ------> molti prestiti
+
+
+Un solo catalogo composto da libri e riviste, è singolo (One), ma i prestiti per quel catalogo possono essere molti.
+Molti prestiti per lo stesso catalogo
+
+OneToMAny

@@ -17,7 +17,7 @@
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="hibernate.default_schema" value="public"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/> <!-- prima crea, poi aggiorna con update dopo la verifica della creazione della tabella-->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- prima crea, poi aggiorna con update dopo la verifica della creazione della tabella-->
         </properties>
     </persistence-unit>
 </persistence>
