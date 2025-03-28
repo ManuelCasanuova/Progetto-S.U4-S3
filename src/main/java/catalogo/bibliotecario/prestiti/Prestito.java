@@ -13,13 +13,14 @@ public class Prestito {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
     private Utente utente;
 
     @ManyToOne
+    @JoinColumn(name = "isbn")
     private Catalogo elementoPrestato;
 
 

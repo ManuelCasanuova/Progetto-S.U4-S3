@@ -18,4 +18,17 @@ public class PrestitoDAO {
         System.out.println(" ");
     }
 
+  //Eliminazione del prestito tramite id
+    public void removePrestito(Long id) {
+        Prestito prestito = em.find(Prestito.class, id);
+        if (prestito != null) {
+            em.remove(prestito);
+            System.out.println("Prestito eliminato correttamente.");
+            System.out.println(" ");
+        } else {
+            System.out.println("Prestito non trovato.");
+            System.out.println(" ");
+        }
+    }
+
 }

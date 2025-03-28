@@ -1,7 +1,9 @@
 package catalogo.bibliotecario.cataloghi;
 
+import catalogo.bibliotecario.prestiti.Prestito;
 import jakarta.persistence.*;
 
+import java.util.List;
 
 
 @Entity
@@ -19,6 +21,9 @@ public abstract class Catalogo {
     private int annoPubblicazione;
 
     private int numeroPagine;
+
+    @OneToMany(mappedBy = "elementoPrestato")
+    private List<Prestito> prestiti;
 
     public Catalogo() {
     }

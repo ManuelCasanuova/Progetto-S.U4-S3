@@ -34,27 +34,15 @@ public class CatalogoDAO {
     }
 
     //Rimozione di un elemento del catalogo dato un codice ISBN
-    public List<Catalogo> removeByISBN(Long isbn) {
-        int prestitiRimossi =  em.createQuery("DELETE FROM Prestito p WHERE p.catalogo.isbn = :isbn", Prestito.class )
-        .setParameter("isbn", isbn)
-        .executeUpdate();
 
-        if(prestitiRimossi > 0){
-            System.out.println(prestitiRimossi + " prestito/i associato/i rimosso/i.");
+   public void removeByISBN(Long isbn) {
+        Catalogo catalogo = findByISBN(isbn);
+        if (catalogo != null) {
+            em.remove(catalogo);
+            System.out.println("Elemento con isbn: " + catalogo.getIsbn() + " rimosso con successo.");
         } else {
-            System.out.println("Nessun prestito associato trovato.");
+            System.out.println("Elemento non trovato");
         }
-
-        int elementoRimosso = em.createQuery("DELETE FROM Catalogo catalogo WHERE catalogo.isbn = :isbn")
-                .setParameter("isbn", isbn)
-                .executeUpdate();
-        if(elementoRimosso > 0){
-            System.out.println("Elemento con ISBN " + isbn + " rimosso con successo.");
-        } else {
-            System.out.println("Elemento non trovato.");
-        }
-
-        return em.createQuery("SELECT catalogo FROM Catalogo catalogo", Catalogo.class).getResultList();
     }
 
     //Ricerca per anno di pubblicazione
