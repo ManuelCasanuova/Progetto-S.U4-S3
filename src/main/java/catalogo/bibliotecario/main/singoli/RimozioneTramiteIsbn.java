@@ -1,6 +1,5 @@
-package catalogo.bibliotecario.main;
+package catalogo.bibliotecario.main.singoli;
 
-import catalogo.bibliotecario.cataloghi.Catalogo;
 import catalogo.bibliotecario.cataloghi.CatalogoDAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -20,7 +19,7 @@ public class RimozioneTramiteIsbn {
         System.out.println(" ");
 
 
-        catalogoDAO.removeByISBN(8L);
+        catalogoDAO.removeByISBN(7L);
 
 
         em.getTransaction().commit();

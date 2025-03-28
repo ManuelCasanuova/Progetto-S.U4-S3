@@ -1,4 +1,4 @@
-package catalogo.bibliotecario.main;
+package catalogo.bibliotecario.main.singoli;
 
 import catalogo.bibliotecario.cataloghi.Catalogo;
 import catalogo.bibliotecario.cataloghi.CatalogoDAO;
@@ -8,7 +8,7 @@ import jakarta.persistence.Persistence;
 
 import java.util.List;
 
-public class RicercaPerAutore {
+public class RicercaPerTitolo {
     public static void main(String[] args) {
         EntityManagerFactory emf= Persistence.createEntityManagerFactory("epicode");
         EntityManager em= emf.createEntityManager();
@@ -17,16 +17,16 @@ public class RicercaPerAutore {
 
         em.getTransaction().begin();
 
-        System.out.println("Ricerca per autore: ");
+        System.out.println(" ");
+        System.out.println("Ricerca per titolo: ");
         System.out.println(" ");
 
-        List<Catalogo> perAutore = catalogoDAO.findByAutore("Alberto Moravia");
-        perAutore.forEach(System.out::println);
+        List<Catalogo> perTitolo = catalogoDAO.findByTitolo("Vogue");
+        perTitolo.forEach(System.out::println);
 
 
         em.getTransaction().commit();
         em.close();
         emf.close();
     }
-
 }

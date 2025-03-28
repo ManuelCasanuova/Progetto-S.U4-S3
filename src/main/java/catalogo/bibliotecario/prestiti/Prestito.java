@@ -17,6 +17,7 @@ public class Prestito {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "utente_id")
     private Utente utente;
 
     @ManyToOne

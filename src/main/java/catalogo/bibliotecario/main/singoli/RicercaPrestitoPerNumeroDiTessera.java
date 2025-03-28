@@ -1,14 +1,11 @@
-package catalogo.bibliotecario.main;
+package catalogo.bibliotecario.main.singoli;
 
-import catalogo.bibliotecario.cataloghi.Catalogo;
 import catalogo.bibliotecario.cataloghi.CatalogoDAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-import java.util.List;
-
-public class RicercaPerTitolo {
+public class RicercaPrestitoPerNumeroDiTessera {
     public static void main(String[] args) {
         EntityManagerFactory emf= Persistence.createEntityManagerFactory("epicode");
         EntityManager em= emf.createEntityManager();
@@ -16,12 +13,11 @@ public class RicercaPerTitolo {
         CatalogoDAO catalogoDAO= new CatalogoDAO(em);
 
         em.getTransaction().begin();
-
-        System.out.println("Ricerca per titolo: ");
+        System.out.println(" ");
+        System.out.println("Ricerca per numero della tessera:");
         System.out.println(" ");
 
-        List<Catalogo> perTitolo = catalogoDAO.findByTitolo("Vogue");
-        perTitolo.forEach(System.out::println);
+        catalogoDAO.findByNumeroTesseraUtente(4L);
 
 
         em.getTransaction().commit();

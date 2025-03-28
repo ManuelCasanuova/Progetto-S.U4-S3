@@ -1,4 +1,4 @@
-package catalogo.bibliotecario.main;
+package catalogo.bibliotecario.main.singoli;
 
 
 import catalogo.bibliotecario.cataloghi.CatalogoDAO;

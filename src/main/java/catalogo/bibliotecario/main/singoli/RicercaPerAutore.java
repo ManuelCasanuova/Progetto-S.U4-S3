@@ -1,14 +1,11 @@
-package catalogo.bibliotecario.main;
+package catalogo.bibliotecario.main.singoli;
 
-import catalogo.bibliotecario.cataloghi.Catalogo;
 import catalogo.bibliotecario.cataloghi.CatalogoDAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-import java.util.List;
-
-public class RicercaPerAnno {
+public class RicercaPerAutore {
     public static void main(String[] args) {
         EntityManagerFactory emf= Persistence.createEntityManagerFactory("epicode");
         EntityManager em= emf.createEntityManager();
@@ -17,11 +14,13 @@ public class RicercaPerAnno {
 
         em.getTransaction().begin();
 
-        System.out.println("Ricerca per aunno di pubblicazione: ");
+        System.out.println(" ");
+        System.out.println("Ricerca per autore: ");
         System.out.println(" ");
 
-        List<Catalogo> elementoCatalogoPerAnno = catalogoDAO.findByAnnoPubblicazione("2020");
-        elementoCatalogoPerAnno.forEach(System.out::println);
+        catalogoDAO.findByAutore("Alberto Moravia");
+        //catalogoDAO.findByAutore("Ludwig van Beethoven");
+
 
 
         em.getTransaction().commit();
