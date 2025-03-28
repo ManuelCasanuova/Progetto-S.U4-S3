@@ -36,14 +36,20 @@ public class CatalogoDAO {
     //Rimozione di un elemento del catalogo dato un codice ISBN
 
    public void removeByISBN(Long isbn) {
-        Catalogo catalogo = findByISBN(isbn);
-        if (catalogo != null) {
-            em.remove(catalogo);
-            System.out.println("Elemento con isbn: " + catalogo.getIsbn() + " rimosso con successo.");
-        } else {
-            System.out.println("Elemento non trovato");
-        }
-    }
+       try {
+           Catalogo catalogo = findByISBN(isbn);
+           if (catalogo != null) {
+               em.remove(catalogo);
+               System.out.println("Elemento con isbn: " + catalogo.getIsbn() + " rimosso con successo.");
+           } else {
+               System.out.println("Elemento con isbn: " + isbn + " non trovato" );
+           }
+
+       } catch (Exception e) {
+           System.out.println("Errore durante la rimozione: " + e.getMessage());
+           throw new RuntimeException("Errore durante la rimozione dell'elemento", e);
+       }
+   }
 
     //Ricerca per anno di pubblicazione
     public List<Catalogo> findByAnnoPubblicazione(String annoPubblicazione) {
