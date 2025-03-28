@@ -20,7 +20,7 @@ public class RimozioneTramiteIsbn {
         System.out.println(" ");
 
 
-        catalogoDAO.removeByISBN(5L);
+        catalogoDAO.removeByISBN(8L);
 
 
         em.getTransaction().commit();
