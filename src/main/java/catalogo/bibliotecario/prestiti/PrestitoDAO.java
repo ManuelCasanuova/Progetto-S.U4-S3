@@ -14,7 +14,7 @@ public class PrestitoDAO {
     //Aggiunta di un prestito
     public void addPrestito(Prestito prestito) {
         em.persist(prestito);
-        System.out.println("Prestito del " + prestito.getDataInizioPrestito() + ", identificativo numero: "+ prestito.getId() + " aggiunto correttamente.");
+        System.out.println("Prestito del " + prestito.getDataInizioPrestito() + " aggiunto correttamente.");
         System.out.println(" ");
     }
 

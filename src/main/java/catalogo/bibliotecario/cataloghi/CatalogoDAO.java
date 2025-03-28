@@ -26,8 +26,9 @@ public class CatalogoDAO {
         Catalogo catalogo = em.find(Catalogo.class, isbn);
         if (catalogo == null) {
             System.out.println("Elemento non trovato");
+        } else{
+            System.out.println("Elemento con isbn: " + catalogo.getIsbn() + " trovato" );
         }
-        System.out.println("Elemento con isbn: " + catalogo.getIsbn() + " trovato" );
         return catalogo;
 
     }
@@ -95,13 +96,5 @@ public class CatalogoDAO {
         return em.createQuery("SELECT prestito FROM Prestito prestito WHERE prestito.dataRestituzionePrevista < CURRENT_DATE AND prestito.dataRestituzioneEffettiva IS NULL", Prestito.class)
                 .getResultList();
     }
-
-
-
-
-
-
-
-
 
 }
